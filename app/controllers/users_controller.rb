@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_action :authenticated!, except: [:new, :create] #:set_user,
+	before_action :set_user, :authenticated!, :authorized! , except: [:new, :create] #:set_user,
 
 	def new
 		@user = User.new
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     	end
   	end
 	
-	# def set_user
- #    	@user = User.find(params[:id])
- #  	end
+	def set_user
+    	@user = User.find(params[:id])
+  	end
 end
