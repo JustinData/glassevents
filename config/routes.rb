@@ -6,4 +6,6 @@ Glassevents::Application.routes.draw do
 
   resource :session
 
+  root 'events#index'
+
 end
