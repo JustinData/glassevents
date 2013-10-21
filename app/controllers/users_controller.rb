@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_action :set_user
+	before_action :authenticated!, except: [:new, :create] #:set_user,
 
 	def new
 		@user = User.new
@@ -17,13 +17,21 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@user = User.find(params[:id])
 	end
 
+	private
 	def user_params
 		params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
 	end
 
-	def set_user
-    	@user = User.find(params[:id])
+	def authorized!
+    	unless @user.id == session[:user_id]
+    		redirect_to user_path(session[:user_id])
+    	end
   	end
+	
+	# def set_user
+ #    	@user = User.find(params[:id])
+ #  	end
 end
