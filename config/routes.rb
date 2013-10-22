@@ -10,4 +10,6 @@ Glassevents::Application.routes.draw do
 
   resources :services
 
+  resources :admins, only: [:index, :show]
+
 end
