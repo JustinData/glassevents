@@ -6,23 +6,27 @@
 </p>
 
 <section class="admins"><h4>admins:</h4>
-<ul>
-	<% users = User.all %>
-	<% users.each do |user| %>
-		<% if user[:admin] == true %>
-    		<li><%= user[:first_name] %> <% user[:last_name] %></li>
+	<ul>
+			<% users = User.all %>
+			<% users.each do |user| %>
+				<% if user[:admin] == true %>
+		    		<li><%= user[:first_name] %> <% user[:last_name] %></li>
 
-    	<% end %>
-	<% end %>	
-</ul>
+		    	<% end %>
+			<% end %>	
+		</ul>
 </section>
 
-<section class="services"><h4>services:</h4>
+<section class="services">
+	<h4><%= link_to "services:", services_path %></h4>
 	<% services = Service.all %>
 	<ul>
 		<% services.each do |s| %>
-		
-			<li><%= s.service_name %></li>
+			<% if @user.admin == true %>
+				<li><%= s.service_name %></li>
+			<% else %>
+				<li><%= s.service_name %></li>
+			<% end %>
 		<% end %>
 	</ul>
 </section>
