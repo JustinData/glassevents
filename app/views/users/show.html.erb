@@ -5,7 +5,7 @@
 	Admin: <%= @user.admin %>
 </p>
 
-<section class="admins">admins:</section>
+<section class="admins">admins:
 <ul>
 	<% users = User.all %>
 	<% users.each do |user| %>
@@ -13,11 +13,21 @@
     		<li><%= user[:first_name] %> <% user[:last_name] %></li>
 
     	<% end %>
-	<% end %>
-	
+	<% end %>	
 </ul>
+</section>
 
-<section>Services, do it yo</section>
+<section class="services">services:
+	<% services = Service.all %>
+	<ul>
+		<% services.each do |s| %>
+		
+			<li><%= s.service_name %></li>
+		<% end %>
+	</ul>
+</section>
+
+<h2>Do later if there is enough time:</h2>
 <section>tasks section (Y U no do this yet?!?)</section>
 
 <section>payments section (Y U no do this yet?!?)</section>

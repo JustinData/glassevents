@@ -1,0 +1,5 @@
+<% @services.each do |s|%>
+<%= s.service_name %><br>
+<% end %>
+
+<%= link_to "User Pannel", user_path(session[:user_id]) %>
