@@ -5,7 +5,8 @@
 	Admin: <%= @user.admin %>
 </p>
 
-<section class="admins"><h4>admins:</h4>
+<section class="admins">
+	<h4><%= link_to "admins:", admins_path %></h4>
 	<ul>
 			<% users = User.all %>
 			<% users.each do |user| %>
