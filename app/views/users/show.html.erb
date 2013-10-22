@@ -5,7 +5,18 @@
 	Admin: <%= @user.admin %>
 </p>
 
-<section>admins section (Y U no do this yet?!?)(Ooo ooo, me next!)</section>
+<section class="admins">admins:</section>
+<ul>
+	<% users = User.all %>
+	<% users.each do |user| %>
+		<% if user[:admin] == true %>
+    		<li><%= user[:first_name] %> <% user[:last_name] %></li>
+
+    	<% end %>
+	<% end %>
+	
+</ul>
+
 
 <section>tasks section (Y U no do this yet?!?)</section>
 
