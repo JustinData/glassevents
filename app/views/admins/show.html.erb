@@ -1,2 +1,5 @@
 <% user = User.find(params[:id]) %>
 Admin info page <%= user[:first_name] %>
+<BR>
+<%= link_to "User Pannel", user_path(session[:user_id]) %>
+<%= link_to "Return to Admins", admins_path %>

@@ -1,1 +1,7 @@
-show
+<% service = Service.find(params[:id]) %>
+ <%= service[:service_name] %>
+<br>
+insert the service info here
+<br>
+<%= link_to "User Pannel", user_path(session[:user_id]) %>
+<%= link_to "Return to Services", services_path %>
