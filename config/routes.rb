@@ -14,6 +14,9 @@ Glassevents::Application.routes.draw do
   	member do
   		post 'promote'
   	end
+    member do
+      post 'demote'
+    end
   end
 
   resources :quotes

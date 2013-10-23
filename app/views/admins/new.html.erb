@@ -13,6 +13,8 @@
 		<td>
 			<% if u[:admin] == false %>
 				<%= button_to "Promote!", promote_admin_path(u[:id]), method: "post" %>
+			<% else %>
+				<%= button_to "Demote!", demote_admin_path(u[:id]), method: "post" %>
 			<% end %>
 		</td>
 	</tr>

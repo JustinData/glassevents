@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-	before_action :set_user, only: [:show]
+	before_action :set_user, only: [:show, :demote, :promote]
 	before_action :authenticated!, :authorized!, only: [:new]
 
 	def index
@@ -20,9 +20,14 @@ class AdminsController < ApplicationController
 	end
 
 	def promote
-		user = User.find(params[:id])
-		user.admin = true
-		user.save
+		@user.admin = true
+		@user.save
+		redirect_to new_admin_path
+	end
+
+	def demote
+		@user.admin = false
+		@user.save
 		redirect_to new_admin_path
 	end
 
