@@ -10,6 +10,12 @@ Glassevents::Application.routes.draw do
 
   resources :services
 
-  resources :admins, only: [:index, :show]
+  resources :admins do
+  	member do
+  		post 'promote'
+  	end
+  end
+
+  resources :quotes
 
 end

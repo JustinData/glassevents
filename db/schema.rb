@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131022180056) do
+ActiveRecord::Schema.define(version: 20131023181810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "quotes", force: true do |t|
+    t.string   "provider",   null: false
+    t.decimal  "price",      null: false
+    t.text     "info",       null: false
+    t.integer  "user_id"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "services", force: true do |t|
     t.string   "service_name", null: false
@@ -32,5 +42,8 @@ ActiveRecord::Schema.define(version: 20131022180056) do
     t.boolean  "admin",           default: false
     t.boolean  "owner",           default: false
   end
+
+  add_foreign_key "quotes", "services", name: "quotes_service_id_fk"
+  add_foreign_key "quotes", "users", name: "quotes_user_id_fk"
 
 end
