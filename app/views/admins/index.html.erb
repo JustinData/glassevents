@@ -1,7 +1,11 @@
+<% if User.find(session[:user_id])[:owner] == true %>
+	<%= link_to "Manage Administrators", new_admin_path %><br><br>
+<% end %>
+
 <% @users.each do |u|%>
 	<% if u[:admin] == true %>
 		 <li><%= link_to "#{u[:first_name]} #{u[:last_name]}", admin_path(u[:id]) %></li>
 	<% end %>
 <% end %>
-
+<br>
 <%= link_to "User Pannel", user_path(session[:user_id]) %>

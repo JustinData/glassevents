@@ -1,5 +1,9 @@
+<% if User.find(session[:user_id])[:admin] == true %>
+	<%= link_to "Add a service", new_service_path %><br><br>
+<% end %>
+
 <% @services.each do |s|%>
 <li><%= link_to "#{s.service_name}", service_path(s[:id]) %></li>
 <% end %>
-
+<br>
 <%= link_to "User Pannel", user_path(session[:user_id]) %>
