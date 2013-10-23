@@ -1,5 +1,5 @@
 <% @services.each do |s|%>
-<%= s.service_name %><br>
+<li><%= link_to "#{s.service_name}", service_path(s[:id]) %></li>
 <% end %>
 
 <%= link_to "User Pannel", user_path(session[:user_id]) %>
