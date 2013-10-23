@@ -10,13 +10,14 @@ class ServicesController < ApplicationController
 		@service = Service.new(service_params)
 
 		if @service.save
-      		redirect_to service_path(@user)
+      		redirect_to service_path(@service.id)
     	else
       		render :new
     	end 
 	end
 
 	def show
+		# binding.pry
 		@service = Service.find(params[:id])
 	end
 
