@@ -23,11 +23,7 @@
 	<% services = Service.all %>
 	<ul>
 		<% services.each do |s| %>
-			<% if @user.admin == true %>
-				<li><%= s.service_name %></li>
-			<% else %>
-				<li><%= s.service_name %></li>
-			<% end %>
+			<li><%= s.service_name %></li>
 		<% end %>
 	</ul>
 </section>

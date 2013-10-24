@@ -2,7 +2,6 @@ class ServicesController < ApplicationController
 	before_action :set_user, :authorized!, only: [:create, :new]
 
 	def new
-		# binding.pry
 		@service = Service.new
 	end
 
@@ -17,7 +16,6 @@ class ServicesController < ApplicationController
 	end
 
 	def show
-		# binding.pry
 		@service = Service.find(params[:id])
 	end
 

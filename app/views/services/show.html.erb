@@ -1,7 +1,32 @@
 <% service = Service.find(params[:id]) %>
- <%= service[:service_name] %>
-<br>
-insert the service info here
+<h1><%= service[:service_name] %></h1>
+
+<p>insert the service info here</p>
+
+<section class="quotes">
+	<h4>Quotes:</h4>
+	
+
+	<% quotes = Quote.where(service_id:service.id) %>
+	<table>
+		<tr>
+			<td>Provider</td>
+			<td>Price</td>
+			<td>Info</td>
+			<td>Creater</td>
+		</tr>
+		<% quotes.each do |q| %>
+			<% creator = User.find(q[:id]) %>
+			<tr>
+				<td><%= q.provider %></td>
+				<td><%= q.price %></td>
+				<td><%= q.info %></td>
+				<td><%= creator.first_name %> <%= creator.last_name %></td>
+			</tr>
+		<% end %>
+	</table>
+</section>
+
 <br>
 <%= link_to "User Pannel", user_path(session[:user_id]) %>
 <%= link_to "Return to Services", services_path %>
