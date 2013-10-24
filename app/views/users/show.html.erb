@@ -53,13 +53,13 @@
 				<td><%= c %></td>
 				<td>
 					<% if c == "Yes" %>
-						<%= chosen.price %>
+						$ <%= chosen.price %>
 						<% total += chosen.price %>
 					<% end %>
 				</td>
 			</tr>
 		<% end %>
-		<tr><td>Total: <%= total %></td></tr>
+		<tr><td>Total: $ <%= total %></td></tr>
 	</table>
 </section>
 
