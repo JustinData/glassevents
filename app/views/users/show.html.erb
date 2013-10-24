@@ -23,25 +23,35 @@
 <section class="services">
 	<h4><%= link_to "services:", services_path %></h4>
 	<% services = Service.all %>
-	
+	<% total = 0 %>
 	<table>
+		<tr>
+			<td>Service Name</td>
+			<td>Quote #</td>
+			<td>Quote Chosen?</td>
+			<td>Price</td>
+		</tr>
 		<% services.each do |s| %>
 			<% c = "No" %>
 			<% chosen = Quote.find_by_service_id_and_chosen(s.id, true) %>
 			<% if chosen != nil %>
 				<% c = "Yes" %>
 			<% end %>
+			<% count = Quote.where(service_id: s.id).count %>
 
 			<tr>
 				<td><%= s.service_name %></td>
+				<td><%= count %></td>
 				<td><%= c %></td>
 				<td>
 					<% if c == "Yes" %>
 						<%= chosen.price %>
+						<% total += chosen.price %>
 					<% end %>
 				</td>
 			</tr>
 		<% end %>
+		<tr><td>Total: <%= total %></td></tr>
 	</table>
 </section>
 
