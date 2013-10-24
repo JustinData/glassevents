@@ -1,6 +1,8 @@
 class QuotesController < ApplicationController
 
 	def show
+		@quote = Quote.find(params[:id])
+		@service = Service.find(@quote.service_id)
 	end
 
 	def index
