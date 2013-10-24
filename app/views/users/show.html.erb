@@ -8,24 +8,32 @@
 </p>
 
 <section class="admins">
-	<h4><%= link_to "admins:", admins_path %></h4>
-	<ul>
-			<% users = User.all %>
-			<% users.each do |user| %>
-				<% if user[:admin] == true %>
-		    		<li><%= user[:first_name] %> <% user[:last_name] %></li>
+	<% users = User.all %>
+	<table>
+		<tr class="table_title"><td><%= link_to "admins:", admins_path %></td></tr>
+		<tr class="column_names">
+			<td>Name</td>
+			<td>Quotes Added</td>
+		</tr>
+		<% users.each do |user| %>
+			<% count = Quote.where(user_id: user.id).count %>
+			<% if user[:admin] == true %>
+	    		<tr>
+	    			<td><%= link_to "#{user[:first_name]} #{user[:last_name]}", admin_path(user[:id]) %></td>
+	    			<td><%= count %></td>
+	    		</tr>
 
-		    	<% end %>
-			<% end %>	
-		</ul>
+	    	<% end %>
+		<% end %>	
+	</table>
 </section>
 
 <section class="services">
-	<h4><%= link_to "services:", services_path %></h4>
 	<% services = Service.all %>
 	<% total = 0 %>
 	<table>
-		<tr>
+		<tr class="table_title"><td><%= link_to "services:", services_path %></td></tr>
+		<tr class="column_names">
 			<td>Service Name</td>
 			<td>Quote #</td>
 			<td>Quote Chosen?</td>
@@ -40,7 +48,7 @@
 			<% count = Quote.where(service_id: s.id).count %>
 
 			<tr>
-				<td><%= s.service_name %></td>
+				<td><%= link_to "#{s.service_name}", service_path(s[:id]) %></td>
 				<td><%= count %></td>
 				<td><%= c %></td>
 				<td>
