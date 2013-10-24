@@ -4,8 +4,7 @@
 <p>insert the service info here</p>
 
 <section class="quotes">
-	<h4>Quotes:</h4>
-	
+	<h4>Quotes:</h4>	
 
 	<% quotes = Quote.where(service_id:service.id) %>
 	<table>
@@ -26,6 +25,10 @@
 		<% end %>
 	</table>
 </section>
+
+<% if User.find(session[:user_id])[:admin] == true %>
+	<%= link_to "Add a quote", new_quote_path %><br><br>
+<% end %>
 
 <br>
 <%= link_to "User Pannel", user_path(session[:user_id]) %>
