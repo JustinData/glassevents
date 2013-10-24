@@ -2,7 +2,9 @@
 
 <p>
 	<%= @user.email %><br>
-	Admin: <%= @user.admin %>
+	<% if @user.admin == true %>
+		You are an admin!
+	<% end %>
 </p>
 
 <section class="admins">
@@ -28,9 +30,3 @@
 	</ul>
 </section>
 
-<h2>Do later if there is enough time:</h2>
-<section>tasks section (Y U no do this yet?!?)</section>
-
-<section>payments section (Y U no do this yet?!?)</section>
-
-<p>User, Admin, and Owner pannels will need to be different, at least partially.  Perhaps the same sections with differnt interactions.</p>
