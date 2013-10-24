@@ -19,6 +19,10 @@ Glassevents::Application.routes.draw do
     end
   end
 
-  resources :quotes
+  resources :quotes do
+    member do
+      post 'choose'
+    end
+  end
 
 end

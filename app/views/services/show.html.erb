@@ -15,12 +15,21 @@
 			<td>Creater</td>
 		</tr>
 		<% quotes.each do |q| %>
-			<% creator = User.find(q[:id]) %>
+			<% creator = User.find(q[:user_id]) %>
 			<tr>
 				<td><%= q.provider %></td>
 				<td><%= q.price %></td>
 				<td><%= q.info %></td>
 				<td><%= creator.first_name %> <%= creator.last_name %></td>
+				
+				<% if User.find(session[:user_id])[:owner] == true %>
+					<% chosen = Quote.find_by_service_id_and_chosen(service.id, true) %>
+					<% if chosen == nil %>
+						<td>
+							<%= button_to "Choose provider!", choose_quote_path(q[:id]), method: "post" %>
+						</td>
+					<% end %>
+				<% end %>
 			</tr>
 		<% end %>
 	</table>

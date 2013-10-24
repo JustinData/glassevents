@@ -22,6 +22,13 @@ class QuotesController < ApplicationController
     	end
 	end
 
+	def choose
+		@quote = Quote.find(params[:id])
+		@quote.chosen = true
+		@quote.save
+		redirect_to user_path(session[:user_id])
+	end
+
 	private
 	def quote_params
 		params.require(:quote).permit(:provider, :service_id, :price, :info)
