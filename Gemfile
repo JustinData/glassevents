@@ -47,3 +47,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'pry-rails'
 
 gem 'foreigner'
+
+ruby "2.0.0"
