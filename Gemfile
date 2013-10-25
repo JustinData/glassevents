@@ -48,4 +48,6 @@ gem 'pry-rails'
 
 gem 'foreigner'
 
+gem 'zurb-foundation'
+
 ruby "2.0.0"

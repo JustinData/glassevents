@@ -1,0 +1,52 @@
+h1 {
+	/*font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif !important;*/
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
+}
+
+body {
+	background-color: #E9F0F0;
+	margin:10px;
+}
+
+p {
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
+}
+
+table {
+	/*background-color: #0D58A6;*/
+}
+
+div {
+	margin:10px;
+}
+
+nav {
+	/*background-color: #0D58A6;*/
+}
+
+input {
+	width: 40% !important;
+}
+
+#button {
+	/*width: 60% !important;*/
+}
+
+#button input{
+	width: 100% !important;
+}
+
+.table_title {
+	font-size: 140%;
+	text-align: center;
+}
+
+.column_names {
+	font-size: 115%;
+	font-weight: bold;
+}
+
+.total {
+	/*font-size: 105%;*/
+	font-weight: bold;
+}

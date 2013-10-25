@@ -25,7 +25,7 @@
 				<% if User.find(session[:user_id])[:owner] == true %>
 					<% chosen = Quote.find_by_service_id_and_chosen(service.id, true) %>
 					<% if chosen == nil %>
-						<td>
+						<td id="button">
 							<%= button_to "Choose provider!", choose_quote_path(q[:id]), method: "post" %>
 						</td>
 					<% end %>

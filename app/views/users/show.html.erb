@@ -7,32 +7,13 @@
 	<% end %>
 </p>
 
-<section class="admins">
-	<% users = User.all %>
-	<table>
-		<tr class="table_title"><td><%= link_to "admins:", admins_path %></td></tr>
-		<tr class="column_names">
-			<td>Name</td>
-			<td>Quotes Added</td>
-		</tr>
-		<% users.each do |user| %>
-			<% count = Quote.where(user_id: user.id).count %>
-			<% if user[:admin] == true %>
-	    		<tr>
-	    			<td><%= link_to "#{user[:first_name]} #{user[:last_name]}", admin_path(user[:id]) %></td>
-	    			<td><%= count %></td>
-	    		</tr>
 
-	    	<% end %>
-		<% end %>	
-	</table>
-</section>
 
-<section class="services">
+<div class="services">
 	<% services = Service.all %>
 	<% total = 0 %>
 	<table>
-		<tr class="table_title"><td><%= link_to "services:", services_path %></td></tr>
+		<tr><td class="table_title"><%= link_to "Services", services_path %></td></tr>
 		<tr class="column_names">
 			<td>Service Name</td>
 			<td>Quote #</td>
@@ -59,7 +40,27 @@
 				</td>
 			</tr>
 		<% end %>
-		<tr><td>Total: $ <%= total %></td></tr>
+		<tr><td class="total">Total: $ <%= total %></td></tr>
 	</table>
-</section>
+</div>
 
+<div class="admins">
+	<% users = User.all %>
+	<table>
+		<tr><td class="table_title"><%= link_to "Admins", admins_path %></td></tr>
+		<tr class="column_names">
+			<td>Name</td>
+			<td>Quotes Added</td>
+		</tr>
+		<% users.each do |user| %>
+			<% count = Quote.where(user_id: user.id).count %>
+			<% if user[:admin] == true %>
+	    		<tr>
+	    			<td><%= link_to "#{user[:first_name]} #{user[:last_name]}", admin_path(user[:id]) %></td>
+	    			<td><%= count %></td>
+	    		</tr>
+
+	    	<% end %>
+		<% end %>	
+	</table>
+</div>

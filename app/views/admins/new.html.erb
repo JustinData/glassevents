@@ -6,7 +6,7 @@
 	<tr>
 		<td><%= u[:first_name] %> <%= u[:last_name] %></td>
 		<td><%= u[:admin] %></td>
-		<td>
+		<td id="button">
 			<% if u[:admin] == false %>
 				<%= button_to "Promote!", promote_admin_path(u[:id]), method: "post" %>
 			<% else %>
