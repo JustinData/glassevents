@@ -16,7 +16,7 @@ class QuotesController < ApplicationController
 		@quote = Quote.new(quote_params)
 		@quote.user_id = session[:user_id]
 		if @quote.save
-      		redirect_to quote_path(@quote)
+      		redirect_to user_path(session[:user_id])
     	else
       		render :new
     	end
