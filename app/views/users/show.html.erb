@@ -41,8 +41,13 @@
 			</tr>
 		<% end %>
 		<tr><td class="total">Total: $ <%= total %></td></tr>
+		<% if User.find(session[:user_id])[:admin] == true %>
+			<tr><td><%= link_to "Add a service", new_service_path %></td></tr>
+		<% end %>
 	</table>
 </div>
+
+
 
 <div class="admins">
 	<% users = User.all %>
