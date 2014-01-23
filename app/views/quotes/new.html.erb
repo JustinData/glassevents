@@ -21,6 +21,6 @@ new quote
 	<%= collection_select :quote, :service_id, Service.all, :id, :service_name %>
 
 	<!-- grab user id to fill foreign key on create -->
-	<%= f.submit %>
+	<%= f.submit => "drop_down" %>
 
 <% end %>

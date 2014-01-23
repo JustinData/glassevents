@@ -28,9 +28,9 @@ input {
 	width: 40% !important;
 }
 
-#button {
-	/*width: 60% !important;*/
-}
+/*.drop_down {
+	width: 40% !important;
+}*/
 
 #button input{
 	width: 100% !important;
